@@ -4,69 +4,43 @@
     <meta charset="UTF-8"/>
     <title>Butler</title>
     <link rel="stylesheet" href="./index.css"/>
-    <script src="./dialog.js" defer></script>
-    <script src="./loadDesc.js" defer></script>
-    <script src="./startAction.js" defer></script>
+    <script src="./app.js" defer type="module"></script>
 </head>
 <body>
-<div class="container-grid">
-    <div id="top-logo">
-        <img id="logo-image" src="./images/butler.png" alt="butler cat">
-        <div id="logo-text-container">
-            <h1>Butler</h1>
-            <p>Created by Carlos Rodriguez</p>
-            <small>Version 0.1</small>
-            <small>Last updated: 2/14/24</small>
-        </div>
-    </div>
-    <div class="container">
-        <div class="flex-apart">
-            <div>
-                <button id="load-dir">Load directory path</button>
-                <div id="load-dir-wrapper" style="display: flex;align-items: center;column-gap: 6px;color: var(--warn-font-color)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 0 0-1.883 2.542l.857 6a2.25 2.25 0 0 0 2.227 1.932H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-1.883-2.542m-16.5 0V6A2.25 2.25 0 0 1 6 3.75h3.879a1.5 1.5 0 0 1 1.06.44l2.122 2.12a1.5 1.5 0 0 0 1.06.44H18A2.25 2.25 0 0 1 20.25 9v.776" />
-                    </svg>
-                    <p id="load-dir-text">Please select a directory...</p>
+<div class="container">
+    <aside id="sidebar">
+        <div class="sidebar-grid">
+            <div id="logo-container" class="padded">
+                <img src="./images/butler.png" alt="logo">
+                <div>
+                    <p>Butler</p>
+                    <small>Version 0.1 - 2/15/24</small>
                 </div>
             </div>
             <div>
-                <button disabled id="start_action">Start</button>
+                <div class="border-b pad-b">
+                    <p class="padded-x">Select a task to run</p>
+                </div>
+                <ul id="tasks-container" class="padded">
+                    <li>
+                        <button id="pdf_to_dir">PDF to Directory</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="flex-col padded">
+                <small>Created by Carlos Rodriguez</small>
+                <small>
+                    <a id="report-link" href="mailto:contact@crr.codes">Report issues</a>
+                </small>
             </div>
         </div>
-        <div class="mini-grid">
-            <form id="actions">
-                <fieldset>
-                    <legend>Actions</legend>
-                    <ul>
-                        <li>
-                            <input type="radio" name="actions" id="pdf-to-dir" data-action="pdf_to_dir">
-                            <label for="pdf-to-dir">PDF to Dir</label>
-                        </li>
-                        <li>
-                            <input type="radio" name="actions" id="test1" data-action="test_1">
-                            <label for="test1">Test</label>
-                        </li>
-                        <li>
-                            <input type="radio" name="actions" id="test2" data-action="test_2">
-                            <label for="test2">Test</label>
-                        </li>
-                    </ul>
-                </fieldset>
-            </form>
-            <div id="description-container">
-                <p id="description-text"></p>
-            </div>
+    </aside>
+    <main id="main-container">
+        <div id="main-welcome">
+            <p>Butler is ready and on standby...</p>
+            <p>Start by selecting a task from the menu on your left</p>
         </div>
-    </div>
-    <div id="results">
-        <p>Butler is ready and on standby...</p>
-    </div>
+    </main>
 </div>
-<dialog id="confirm">
-    <div>
-        <p>confirm?</p>
-    </div>
-</dialog>
 </body>
 </html>
