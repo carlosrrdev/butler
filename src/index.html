@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Butler</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div x-data class="min-h-dvh flex flex-col gap-y-4 p-4">
+  <section class="sec">
+    <p>Select directories</p>
+    <div class="grid grid-cols-2 gap-x-4">
+      <button @click="$store.butler.selectEntryPath()" class="btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+          <path fill="currentColor"
+                d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"/>
+        </svg>
+        <span>Select entry</span>
+      </button>
+      <button @click="$store.butler.selectDestinationPath()" class="btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+          <path fill="currentColor"
+                d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8z"/>
+        </svg>
+        <span>Select destination</span>
+      </button>
+    </div>
+  </section>
+  <section x-show="$store.butler.entryPath || $store.butler.destinationPath" class="sec overflow-hidden p-0">
+    <div @click="$store.butler.openDirectory($store.butler.entryPath)" x-show="$store.butler.entryPath"
+         class="dir-list">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+        <path fill="currentColor" d="m12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+      </svg>
+      <p class="font-mono text-xs" x-text="$store.butler.entryPath"></p>
+    </div>
+    <div @click="$store.butler.openDirectory($store.butler.destinationPath)" x-show="$store.butler.destinationPath"
+         class="dir-list">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z"/>
+      </svg>
+      <p class="font-mono text-xs" x-text="$store.butler.destinationPath"></p>
+    </div>
+  </section>
+  <section class="mt-auto flex justify-center">
+    <button :class="$store.butler.entryPath && $store.butler.destinationPath? '': 'btn-disabled'" class="btn-main">Start
+      Task
+    </button>
+  </section>
+</div>
+<script src="/main.js" type="module"></script>
+</body>
+</html>

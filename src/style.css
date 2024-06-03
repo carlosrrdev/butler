@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-slate-50 dark:bg-neutral-800
+    }
+}
+
+@layer components {
+    .sec {
+        @apply p-3 flex flex-col gap-y-2 rounded bg-slate-100 border border-slate-200
+        dark:bg-neutral-700 dark:text-slate-50 dark:border-neutral-600
+    }
+    .btn {
+        @apply flex items-center gap-x-2 py-2 px-4 border border-slate-400 rounded bg-slate-400 text-slate-50
+        transition-colors duration-200 hover:bg-slate-500 dark:bg-neutral-600 dark:border-neutral-500
+        dark:hover:bg-neutral-700
+    }
+    .btn-main {
+        @apply px-4 py-2 w-full font-bold text-slate-50 rounded bg-slate-800 hover:bg-slate-700 dark:bg-emerald-600 transition-colors duration-200
+        dark:hover:bg-emerald-700
+    }
+    .btn-disabled {
+        @apply bg-slate-200 text-neutral-900 cursor-not-allowed dark:hover:bg-neutral-700 dark:bg-slate-700
+        hover:bg-slate-200
+    }
+    .dir-list {
+        @apply cursor-pointer transition-colors px-4 py-2 duration-200 flex items-center gap-x-2
+        hover:bg-slate-300 dark:hover:bg-neutral-800
+    }
+}
